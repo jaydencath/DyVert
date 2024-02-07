@@ -7,7 +7,7 @@
 ## Description 
 >The motivation for DyVert derives from a lack of media search instruments that accurately cater to the interest of the consumer. With this app, our goals are to broaden the client's media/ entertainment palette and showcase the content of our creators to new consumers who share a common interest. DyVert could be the solution to many problems that modern media platforms face: keeping the consumer engaged and refreshed with multimedia content with an innovative method and shedding light on more upcoming creators to support their art.
 
-__Application or web service__
+__Application or web service__  <br>
 Our service will take place as an app, giving users easier access to our platform. Dyverse will be taking place as an application giving it options to be downloadable on multiple platforms and have its services be handmade for its own specific experience outside of website interactions. 
 
 __Features of DyVerse__

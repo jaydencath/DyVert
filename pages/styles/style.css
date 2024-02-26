@@ -1,0 +1,55 @@
+* {
+    background-color: #121212;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    flex-grow: 1;
+    gap: 4em;
+}
+
+.roboto-mono-nav-brand {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 48px;
+}
+
+.roboto-mono-nav-links {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 34px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+}
+
+ul.links {
+    list-style: none;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 2em;
+}
+
+.nav-links {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.nav-profile {
+    fill: #BB86FC;
+}

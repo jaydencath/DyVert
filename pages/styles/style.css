@@ -57,3 +57,18 @@ ul.links {
 .nav-bar {
     margin: 1em 2em;
 }
+
+.sidebar {
+    display: flex;
+    width: 300px;
+    background-color: aliceblue;
+    margin-top: 100px;
+    margin-left:15px;
+    height: 500px;
+    list-style-type: none;
+}
+
+.cItem {
+    padding: 5px;
+    text-align: left;
+}

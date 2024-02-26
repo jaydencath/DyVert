@@ -50,6 +50,10 @@ ul.links {
     justify-content: center;
 }
 
-.nav-profile {
-    fill: #BB86FC;
+.nav-profile-container{
+    width:4em;
+}
+
+.nav-bar {
+    margin: 1em 2em;
 }

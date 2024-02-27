@@ -383,9 +383,10 @@ tr {
     justify-content: center;
 }
 
-.admin-notation {
+.acct-notation {
     display: flex;
-    align-items: center;   
+    align-items: center;
+    font-size: 16px;
 }
 
 .side-menu-heading {

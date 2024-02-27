@@ -1,0 +1,104 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Navigation styles */
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
+}
+
+.nav-brand {
+    font-size: 24px;
+}
+
+ul.links {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+}
+
+.nav-profile-container {
+    width: 4em;
+}
+
+/* Login container styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-box {
+    width: 300px;
+    height: 300px;
+    background-color: #121212; /* Background color of the box */
+    border: 2px solid #cec3ce; /* Light purple outline */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-title {
+    color: white;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.purple-text {
+    color: #ecd0ec; /* Purple text */
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #363636; /* Dark gray background */
+    color: white;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #BB86FC; /* Purple button */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #BB86FC; /* Darker purple on hover */
+}

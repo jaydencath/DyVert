@@ -20,19 +20,22 @@
         <div class="nav-links roboto-mono-nav-links">
             <ul class="links">
                 <li>
-                    <a href="#" class="link-active">Home</a>
-                </li>
-                <li>
-                    <a href="./bucket.html">Bucket</a>
+                    <a href="#" class="link-active">Dashboard</a>
                 </li>
                 <li>
                     <a href="#">About Us</a>
                 </li>
             </ul>
         </div>
+
+        <div class="admin-notation roboto-mono-nav-links">
+            <a href="../user/home.html">
+                Admin Account
+            </a>
+        </div>
         <!-- Profile button container -->
         <div class="nav-profile-container">
-            <a href="../creator/create.html" class="nav-profile-container">
+            <a href="./login.html" class="nav-profile-container">
                 <img class="nav-profile" src="../Icons/user-circle.svg" alt="profile icon">
             </a>
         </div>
@@ -40,45 +43,35 @@
 
     <div class="content-container">
         <div class="side-menu">
-            <div class="movie-side side-option">
+            <div class="side-option">
+                <p class="side-option side-menu-heading">
+                    Menu
+                </p>
+            </div>
+            <div class="side-option menu-option">
                 <a href="#" class="side-option">
-                    <img class="side-menu-icons" src="../Icons/film.svg" alt="film icon">
-                    <p class="side-menu-text">Movies</p>
+                    <p class="admin-active">Unreviewed Cards</p>
                 </a>
             </div>
-            <div class="book-side side-option">
+            <div class="side-option menu-option">
                 <a href="#" class="side-option">
-                    <img class="side-menu-icons" src="../Icons/book.svg" alt="book icon">
-                    <p class="side-menu-text">Books</p>
-                </a>
-            </div>
-            <div class="show-side side-option">
-                <a href="#" class="side-option">
-                    <img class="side-menu-icons" src="../Icons/television.svg" alt="TV icon">
-                    <p class="side-menu-text">Shows</p>
-                </a>
-            </div>
-            <div class="undo-side side-option">
-                <a href="#" class="side-option">
-                    <img class="side-menu-icons" src="../Icons/undo.svg" alt="undo icon">
-                    <p class="side-menu-text">Undo</p>
-                </a>
-            </div>
-            <div class="genres-side side-option">
-                <a href="#" class="side-option">
-                    <img class="side-menu-icons" src="../Icons/chevron-down.svg" alt="down chevron">
-                    <p class="side-menu-text">Genres</p>
+                    <p class="side-menu-text">Accounts</p>
                 </a>
             </div>
         </div>
 
-        <div class="swipe-content">
-            <div class="swipe-left">
-                <a href="#" class="side-option">
-                    <img class="side-menu-icons" src="../Icons/chevron-left.svg" alt="Swipe Left">
+        <div class="view-card-content">
+            <div class="admin-tools">
+                <a href="#" class="side-menu-icon">
+                    <img class="side-menu-icons" src="../Icons/check-square.svg" alt="Check Icon">
+                </a>
+                <a href="#" class="side-menu-icon">
+                    <img class="side-menu-icons" src="../Icons/flag.svg" alt="Flag Icon">
+                </a>
+                <a href="#" class="side-menu-icon">
+                    <img class="side-menu-icons" src="../Icons/trash.svg" alt="Trash Icon">
                 </a>
             </div>
-
             <div class="content-card">
                 <div class="content-image">
                     <img class="poster-image" src="../images/images.jpeg" alt="The Bear poster">
@@ -115,16 +108,14 @@
                 </div>
             </div>
 
-            <div class="swipe-right">
-                <a href="#" class="side-option">
-                    <img class="side-menu-icons" src="../Icons/chevron-right.svg" alt="Swipe Right">
+            <div class="exit">
+                <a href="./admin.html" class="exit-button">
+                    <img class="side-menu-icons" src="../Icons/times.svg" alt="Exit Icon">
                 </a>
             </div>
-        </div>
-
-        <div class="refresh-side">
 
         </div>
+    
     </div>
+
 </body>
-</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to DyVert</title>
+    <link rel="stylesheet" href="../styles/style.css">
+    <style>
+        /* Box styles */
+        .login-box {
+            width: 300px;
+            height: 300px;
+            background-color: #121212; /* Background color of the box */
+            border: 2px solid #e4dde4; /* Light purple outline */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: "Roboto Mono", monospace;
+            top: 50%;
+            left: 50%;
+            transform: translate(180%,50%);
+        }
+
+        /* Input styles */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+            width: 80%;
+        }
+
+        .input-group label {
+            color: #d3c7d3; /* Purple text */
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #363636; /* Dark gray background */
+            color: white;
+        }
+        
+
+        /* Button styles */
+        .login-button {
+            width: 80%;
+            padding: 10px;
+            border: none;
+            background-color: #BB86FC; /* Purple button */
+            color: rgb(10, 10, 10);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #600060; /* Darker purple on hover */
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-brand roboto-mono-nav-brand">
+            <a class="navbar-brand" href="#">DyVert</a>
+        </div>
+        <div class="nav-links roboto-mono-nav-links">
+            <ul class="links">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="./bucket.html">Bucket</a>
+                </li>
+                <li>
+                    <a href="#">About Us</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-profile-container">
+            <img class="nav-profile" src="../Icons/user-circle.svg" alt="profile icon">
+        </div>
+    </nav>
+
+    <!-- Light purple outlined box -->
+    <div class="login-box">
+        <!-- Login title -->
+        <h2 class="login-title">LOGIN</h2>
+
+        <!-- Username field -->
+        <div class="input-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+
+        <!-- Password field -->
+        <div class="input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <!-- Login button -->
+        <button type="submit" class="login-button">Login</button>
+    </div>
+</body>
+</html>

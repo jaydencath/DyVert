@@ -59,16 +59,48 @@ ul.links {
 }
 
 .sidebar {
-    display: flex;
     width: 300px;
-    background-color: aliceblue;
     margin-top: 100px;
-    margin-left:15px;
-    height: 500px;
-    list-style-type: none;
+    margin-left:30px;
+    border-right: solid 3px #BB86FC;
+    height:750px;
+    
 }
 
-.cItem {
-    padding: 5px;
-    text-align: left;
+.sidebar h2 {
+    font-size: 30px;
+    display: inline-block;
+
 }
+.sidebar img {
+    width: 30px;
+    vertical-align: middle;
+    padding-left: 160px;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin-top: 20px;
+    border-bottom: #BB86FC solid 2px;
+    margin-right: 30px;
+    padding: 10px;
+    font-size: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar li:hover {
+    color: #121212;
+    background-color: #BB86FC;
+    transition-delay: 0.3s ease;
+}
+
+
+
+

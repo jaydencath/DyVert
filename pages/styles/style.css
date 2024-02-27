@@ -58,11 +58,18 @@ ul.links {
     margin: 1em 2em;
 }
 
+.container {
+    display: flex;
+    flex-direction: row;
+}
 .sidebar {
+    font-family: "Roboto Mono", monospace;
+    font-style: normal;
+    
     width: 300px;
-    margin-top: 100px;
+    margin-top: 70px;
     margin-left:30px;
-    border-right: solid 3px #BB86FC;
+    border-right: solid 2px #BB86FC;
     height:750px;
     
 }
@@ -70,6 +77,7 @@ ul.links {
 .sidebar h2 {
     font-size: 30px;
     display: inline-block;
+    font-weight: normal;
 
 }
 .sidebar img {
@@ -101,6 +109,129 @@ ul.links {
     transition-delay: 0.3s ease;
 }
 
+.create {
+    font-family: "Roboto Mono", monospace;
+    font-style: normal;
+    width: 500px;
+    margin-left:70px;
+}
+
+.create img {
+    width: 30px;
+    vertical-align: middle;
+    display: inline-block;
+    padding-left: 370px;
+    padding-bottom: 21px
+}
+
+.create h2 {
+    font-size: 30px;
+    display: inline-block;
+    font-weight: normal;
+    
+}
+
+#title {
+    margin-top: 70px;
+    display: inline-block;
+}
+
+#syn {
+    margin-top: 20px;
+}
+
+#tTextbox {
+    margin-top: 10px;
+    background-color: rgb(61, 54, 54);
+    width: 500px;
+    height: 25px;
+}
+
+#tSyn {
+    margin-top: 10px;
+    background-color: rgb(61, 54, 54);
+    width: 500px;
+    padding: 0 0 150px;
+}
+
+.checks {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cheks {
+    margin-bottom: 10px;
+    display: flex;
+}
 
 
+.checks input[type ="checkbox"] {
+    margin-right: 20px;
+    
+}
 
+.checks label {
+    margin-right: 50px;
+    padding: 10px;
+}
+
+#photo{
+    margin-top: 10px;
+    background-color: rgb(61, 54, 54);
+    width: 500px;
+}
+
+.button {
+    margin-top: 25px;
+    border: none;
+    background-color: rgb(61, 54, 54);
+    padding: 10px 20px;
+    font-size: 20px;
+    width: 150px;
+    text-align: center;
+    cursor: pointer;
+    display: inline;
+}
+
+.button2 {
+    margin-top: 25px;
+    width: 140px;
+    border: none;
+    background-color: #BB86FC;
+    color: #121212;
+    padding: 10px 20px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.preview {
+    font-family: "Roboto Mono", monospace;
+    font-style: normal;
+    width: 500px;
+    margin-left:300px;
+}
+
+.preview h2 {
+    font-weight: normal;
+}
+
+.previewB{
+    width: 400px;
+    border: #BB86FC solid 2px;
+    height: 500px;
+    margin-top: 30px;
+}
+
+.button3 {
+    margin-top: 25px;
+    width: 140px;
+    border: #BB86FC solid 2px;
+    color: #BB86FC;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+}

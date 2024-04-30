@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>DyVert</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <style>
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        #swipe-right-button:hover {
+            animation: bounce 0.6s;
+        }
+        
+        #swipe-left-button:hover {
+            animation: bounce 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-brand roboto-mono-nav-brand">
+            <a class="navbar-brand" href="#">DyVert</a>
+        </div>
+        <div class="nav-links roboto-mono-nav-links">
+            <ul class="links">
+                <li>
+                    <a href="#" class="link-active">Home</a>
+                </li>
+                <li>
+                    <a th:href="@{/user/{id}/bucket(id=${user.accountID})}">Bucket</a>
+                </li>
+                <li>
+                    <a th:href="@{/creator/{id}/create(id=${user.accountID})}">Creator</a>
+                </li>
+                <li>
+                    <a th:href="@{/admin/{id}/all-unreviewed(id=${user.accountID})}">Admin</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-profile-container">
+            <a href="../user/login.html" class="nav-profile-container">
+                <img class="nav-profile" src="/Icons/user-circle.svg" alt="profile icon">
+            </a>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="side-menu">
+            <div class="db-side-active side-option">
+                <a href="#" class="side-option">
+                    <img class="side-menu-icons" src="/Icons/database.svg" alt="cloud icon"/>
+                    <p class="side-menu-text side-menu-active">DyVert Content</p>
+                </a>
+            </div>            
+            
+            <div class="cloud-side side-option">
+                <a th:href="@{/user/{id}/home/api-content/Movie(id=${user.accountID})}" class="side-option">
+                    <img class="side-menu-icons" src="/Icons/cloud.svg" alt="cloud icon"/>
+                    <p class="side-menu-text">API Content</p>
+                </a>
+            </div>
+            <div class="movie-side side-option">
+                <a th:href="@{/user/{id}/home/Movie(id=${user.accountID})}" class="side-option" id="Movie">
+                    <img class="side-menu-icons" src="/Icons/film.svg" alt="film icon">
+                    <p class="side-menu-text">Movies</p>
+                </a>
+            </div>
+            <div class="book-side side-option">
+                <a th:href="@{/user/{id}/home/Book(id=${user.accountID})}" class="side-option" id="Book">
+                    <img class="side-menu-icons" src="/Icons/book.svg" alt="book icon">
+                    <p class="side-menu-text">Books</p>
+                </a>
+            </div>
+            <div class="show-side side-option">
+                <a th:href="@{/user/{id}/home/TV-Show(id=${user.accountID})}" class="side-option" id="TV-Show">
+                    <img class="side-menu-icons" src="/Icons/television.svg" alt="TV icon">
+                    <p class="side-menu-text">Shows</p>
+                </a>
+            </div>
+            <div class="genres-side side-option">
+                <a href="#" class="side-option">
+                    <img class="side-menu-icons" src="/Icons/chevron-down.svg" alt="down chevron">
+                    <p class="side-menu-text">Genres</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="swipe-content">
+            <form id="pass-form" th:action="@{/user/{id}/pass(id=${user.accountID})}" method="POST" class="side-menu-icon">
+                <input type="hidden" name="cardID" th:value="${card.cardID}" />
+                <input type="hidden" name="userID" th:value="${user.accountID}" />
+                <button type="submit" id="swipe-left-button">
+                    <img class="side-menu-icons" src="/Icons/chevron-left.svg" alt="Swipe Left">
+                </button>
+            </form>
+            
+            <div class="content-card" id="content-card">
+                <div class="content-image">
+                    <img class="poster-image" th:src="@{'/content-images/' + ${card.imagePath}}" alt="Card Image">
+                </div>
+                <div class="content-genres">
+                    <p class="content-card-header">Title</p>
+                    <p class="content-card-text" th:text="${card.title}"></p>
+                </div>
+                <div class="content-reviews">
+                    <p class="content-card-header">Genres</p>
+                    <p class="content-card-text" th:text="${card.genres}"></p>
+                </div>
+                <div class="content-length">
+                    <p class="content-card-header">Reviews</p>
+                    <p class="content-card-text" th:text="${card.reviews}"></p>
+                </div>
+                <div class="content-synopsis">
+                    <p class="content-card-header">Synopsis</p>
+                    <p class="content-card-text" th:text="${card.synopsis}"></p>
+                </div>
+            </div>
+            
+            <form id="add-to-bucket-form" th:action="@{/user/{id}/add-to-bucket(id=${user.accountID})}" method="POST" class="side-menu-icon">
+                <input type="hidden" name="cardID" th:value="${card.cardID}" />
+                <input type="hidden" name="userID" th:value="${user.accountID}" />
+                <button type="submit" id="swipe-right-button">
+                    <img class="side-menu-icons" src="/Icons/chevron-right.svg" alt="Swipe Right">
+                </button>
+            </form>
+        </div>
+
+        <div class="refresh-side">
+
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var currentUrl = window.location.pathname;
+            var selectedOptionId = currentUrl.split('/').pop();
+            if (selectedOptionId !== "all") {
+                var selectedLink = document.getElementById(selectedOptionId);
+                if (selectedLink) {
+                    selectedLink.classList.add('selected-option');
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

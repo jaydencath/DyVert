@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>DyVert</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-brand roboto-mono-nav-brand">
+            <a href="#" class="navbar-brand">DyVert</a>
+        </div>
+        <div class="nav-links roboto-mono-nav-links">
+            <ul class="links">
+                <li><a th:href="@{/user/{id}/home/all(id=${userID})}">Home</a></li>
+                <li>
+                    <a th:href="@{/user/{id}/bucket(id=${userID})}">Bucket</a>
+                </li>
+                <li><a th:href="@{/creator/{id}/create(id=${userID})}">Creator</a></li>
+                <li><a href="#" class="link-active">Admin</a></li> 
+            </ul>
+        </div>
+        <div class="nav-profile-container">
+            <a href="@{/user/login}" class="nav-profile-container">
+                <img src="@{/Icons/user-circle.svg}" alt="profile icon" class="nav-profile">
+            </a>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="side-menu">
+            <div class="side-option">
+                <p class="side-menu-heading">Menu</p>
+            </div>
+            <div class="side-option menu-option">
+                <a th:href="@{/admin/{id}/all-unreviewed(id=${userID})}" class="side-option">
+                    <p class="side-menu-text">Unreviewed Cards</p>
+                </a>
+            </div>
+            <div class="side-option menu-option">
+                <a th:href="@{/admin/{id}/accounts(id=${userID})}" class="side-option">
+                    <p class="admin-active">Accounts</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="bucket-table content-card-text">
+                <thead>
+                    <tr>
+                        <th>Account Name</th>
+                        <th>Account Type</th>    
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${accounts}">
+                        <td th:text="${user.accountID}">Username</td>
+                        <td th:text="${user.accountType}">Account Type</td>
+                        <td>
+                            <form th:action="@{/admin/deleteUser}" method="post">
+                                <input type="hidden" name="id" th:value="${user.accountID}" />
+                                <input type="hidden" name="userID" th:value="${userID}" />
+                                <button type="submit" class="button-reset">
+                                    <img src="/Icons/trash.svg" class="table-icon" alt="Delete Icon">
+                                </button>
+                            </form>
+                        </td>
+                        
+                            
+                        
+                    </tr>
+                </tbody>
+                
+            </table>
+        </div>
+    </div>
+</body>
+</html>

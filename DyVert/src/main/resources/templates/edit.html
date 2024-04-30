@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>DyVert</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/creator.js" defer></script>    
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-brand roboto-mono-nav-brand">
+            <a class="navbar-brand" href="#">DyVert</a>
+        </div>
+        <div class="nav-links roboto-mono-nav-links">
+            <ul class="links">
+                <li>
+                    <a th:href="@{/user/{id}/home/all(id=${userID})}">Home</a>
+                </li>
+                <li>
+                    <a th:href="@{/user/{id}/bucket(id=${userID})}">Bucket</a>
+                </li>
+                <li>
+                    <a href="#" class="link-active">Creator</a>
+                </li>
+                <li>
+                    <a th:href="@{/admin/all-unreviewed}">Admin</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nav-profile-container">
+            <a href="../user/login.html" class="nav-profile-container">
+                <img class="nav-profile" src="/Icons/user-circle.svg" alt="profile icon">
+            </a>
+        </div>
+    </nav>
+    
+  <div class="container">
+    <div class="sidebar">
+        <h2>Cards</h2>
+         <a th:href="@{/creator/{id}/create(id=${userID})}" id="createCardButton"><img src="/Icons/edit.svg" alt="Create Card"></a>
+        <ul id="cardList">
+        <li th:each="card : ${userCards}" th:text="${card.title}" th:attr="user-id=${userID}, data-card-id=${card.cardID}" class="edit-card"></li>
+        
+    </ul>
+    </div>
+
+   
+   <form id="editForm" action="/creator/e" method="post" th:object="${cardForm}">
+      
+    <div class="create">
+        <h2 id="title">Title</h2>
+        <br>
+            <input type="text" name="title" id="tTextbox" th:value="${card.title}"></input>
+        <h2 id="syn">Synopsis</h2>
+        <input type="text" name="synopsis" id="tSyn" th:value="${card.synopsis}"></input>
+        <h2 id="syn">Genres</h2><br>
+        <div class="checks">
+            <div class="cheks">
+                <input class="checkbox1" type="checkbox" id="indie" name="genres" value="Indie" th:checked="${card.genres.contains('Indie')}"></input>
+                <label for="indie">Indie</label>
+                <input class="checkbox" type="checkbox" id="drama" name="genres" value="Drama" th:checked="${card.genres.contains('Drama')}"></input>
+                <label for="drama">Drama</label>
+            </div>
+            <div class="cheks">
+                <input class="checkbox" type="checkbox" id="comedy" name="genres" value="Comedy" th:checked="${card.genres.contains('Comedy')}"></input>
+                <label for="comedy">Comedy</label>
+                <input class="checkbox" type="checkbox" id="romance" name="genres" value="Romance" th:checked="${card.genres.contains('Romance')}"></input>
+                <label for="romance">Romance</label>
+            </div>
+            <div class="cheks">
+                <input class="checkbox" type="checkbox" id="action" name="genres" value="Action" th:checked="${card.genres.contains('Action')}"></input>
+                <label for="action">Action</label>
+                <input class="checkbox" type="checkbox" id="cartoon" name="genres" value="Cartoon" th:checked="${card.genres.contains('Cartoon')}"></input>
+                <label for="cartoon">Cartoon</label>
+            </div>
+            <div class="cheks">
+                <input class="checkbox" type="checkbox" id="horror" name="genres" value="Horror" th:checked="${card.genres.contains('Horror')}"></input>
+                <label for="horror">Horror</label>
+                <input class="checkbox" type="checkbox" id="adventure" name="genres" value="Adventure" th:checked="${card.genres.contains('Adventure')}"></input>
+                <label for="adventure">Adventure</label>
+            </div>
+            
+        </div>
+        <h2 id="syn">Image Path</h2>
+        <input id="imagePath" type="text" name="imagePath" th:value="${card.imagePath}" />
+        <h2 id="syn">Type of Media</h2>
+<select name="type" id="type" required>
+    <option value="">Select Type</option>
+    <option value="Movie" th:selected="${card.type == 'Movie'}">Movie</option>
+    <option value="Book" th:selected="${card.type == 'Book'}">Book</option>
+    <option value="TV Show" th:selected="${card.type == 'TV Show'}">TV Show</option>
+</select>
+        <br>  
+        <input type="hidden" name="userID" id="userID" th:value="${userID}"/>
+        <button class = "button2" type = "submit">Update</button>
+      </div>
+      </form>
+      <form th:action="@{/creator/d}" method="post">
+    <input type="hidden" name="id" th:value="${card.cardID}" />
+    <input type="hidden" name="userID" id="userID" th:value="${userID}"/>
+    <button class="button2" type="submit" >Delete</button>
+</form>
+    </div>
+    
+
+
+  
+</body>
+</html>
+    

@@ -101,12 +101,21 @@ public class UserRepository {
             template.update(dSql, parameter);
         }
         int count4 = 0;
-        String query4 = "SELECT count(*) FROM seen s JOIN card_data c ON s.contentID = c.cardid WHERE c.userID = :accountID";
+        String query4 = "SELECT count(*) FROM seen WHERE accountID = :accountID";
         count4 = template.queryForObject(query4, parameter, Integer.class);
         if (count4 > 0) {
-            String eSql = "DELETE s FROM seen s JOIN card_data c ON s.contentID = c.cardid WHERE c.userID = :accountID";
+            String eSql = "DELETE FROM seen WHERE accountID = :accountID";
             template.update(eSql, parameter);
         }
+        
+        int count5 = 0;
+        String query5 = "SELECT count(*) FROM bucket_api WHERE accountID = :accountID";
+        count5 = template.queryForObject(query5, parameter, Integer.class);
+        if (count5 > 0) {
+            String cSql = "DELETE FROM bucket_api WHERE accountID = :accountID";
+            template.update(cSql, parameter);
+        }
+        
         int count2 = 0;
         String query2 = "SELECT count(*) FROM card_data WHERE userID = :accountID";
         count2 = template.queryForObject(query2, parameter, Integer.class);

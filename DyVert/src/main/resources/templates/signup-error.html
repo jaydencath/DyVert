@@ -1,4 +1,72 @@
-* {
+<!DOCTYPE html>
+<html lang="en" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login to DyVert</title>
+    <link rel="stylesheet" href="/style.css"/>
+    <style>
+        /* Box styles */
+        .login-box {
+            width: 300px;
+            height: 300px;
+            background-color: #121212; /* Background color of the box */
+            border: 2px solid #e4dde4; /* Light purple outline */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: "Roboto Mono", monospace;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Input styles */
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+            width: 80%;
+        }
+
+        .input-group label {
+            color: #d3c7d3; /* Purple text */
+            margin-bottom: 5px;
+            display: flex;
+        }
+
+        .input-group input {
+            width: 90%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: #363636; /* Dark gray background */
+            color: white;
+        }
+        
+
+        /* Button styles */
+        .login-button {
+            width: 80%;
+            padding: 10px;
+            border: none;
+            background-color: #BB86FC; /* Purple button */
+            color: rgb(10, 10, 10);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #600060; /* Darker purple on hover */
+        }
+        
+        * {
     background-color: #121212;
     color: white;
     margin: 0px;
@@ -419,53 +487,64 @@ tr {
 
     margin-right: 1em;
 }
+    </style>
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="nav-brand roboto-mono-nav-brand">
+            <a class="navbar-brand" href="#">DyVert</a>
+        </div>
+        <div class="nav-links roboto-mono-nav-links">
+            <ul class="links">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Bucket</a>
+                </li>
+                <li>
+                    <a href="#">Creator</a>
+                </li>
+                <li>
+                    <a href="#">Admin</a>
+                </li>
+            </ul>
+        </div>
+        <div class="nav-profile-container">
+            <img class="nav-profile" src="/Icons/user-circle.svg" alt="profile icon"/>
+        </div>
+    </nav>
 
-.side-menu-active {
-    color: #BB86FC;
-    border-bottom: solid;
-    border-color: #BB86FC;
-    border-width: 2px;
-}
+    <div>
+        <h1>Username already used!</h1>
+    </div>
 
-.selected-option>p {
-    color: #BB86FC;
-    font-style: italic;
-}
+    <div class="login-box">
+        <h2 class="login-title">SIGN-UP</h2>
+        <form th:action="@{/sn}" method="post">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" th:required="required"/>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" th:required="required"/>
+            </div>
 
-#show-full-synopsis {
-    font-family: "Roboto Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    font-size: 12px;
-    border: 1px solid white;
-    border-radius: 1px;
-}
+            <div class="select-group">
+                <label for="accountType">Account Type:</label>
+                <select id="accountType" name="accountType" th:required="required">
+                    <option value="Creator">Creator</option>
+                    <option value="User">User</option>
+                    <option value="Admin">Admin</option>
+                </select>
+            </div>
+            <button type="submit" class="login-button">Sign-Up</button>
+        </form>
+    </div>
+</body>
+</html>
 
-.button-reset {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-}
 
-/* Style for the logout button */
-.logout-button {
-    background: none;
-    border: none;
-    padding: 0; /* Remove default padding */
-    cursor: pointer; /* Show pointer cursor on hover */
-}
 
-/* Style for the profile image */
-.nav-profile {
-    width: 50px; /* Adjust width as needed */
-    height: 50px; /* Adjust height as needed */
-    border-radius: 50%; /* Make it round */
-}
-
-/* Optional: Add some margin to the button for spacing */
-.nav-profile-container {
-    margin-right: 1em; /* Adjust margin as needed */
-}

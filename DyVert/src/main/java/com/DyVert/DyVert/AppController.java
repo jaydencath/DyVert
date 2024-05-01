@@ -63,15 +63,29 @@ public class AppController {
     
     @PostMapping("/sn")
     public String handleSignUpPost(@RequestParam("username") String username, @RequestParam("password") String password, @RequestParam("accountType") String accountType) {
-        String sql = "INSERT INTO users (accountID, account_type, password) VALUES (:username, :accountType, :password)";
+        String sql = "SELECT count(*) FROM users WHERE accountID = :username";
+        MapSqlParameterSource initialParam = new MapSqlParameterSource();
+        initialParam.addValue("username", username, java.sql.Types.VARCHAR);
+        int count = jdbcTemplate.queryForObject(sql, initialParam, Integer.class);
+        if (count > 0) {
+            return "signup-error";
+        }
+        
+        try {
+            sql = "INSERT INTO users (accountID, accountType, account_type, last_card_viewed, password) VALUES (:username, :accountType, null, 0, :password)";
+            MapSqlParameterSource parameters = new MapSqlParameterSource();
+            parameters.addValue("username", username, java.sql.Types.VARCHAR);
+            parameters.addValue("accountType", accountType, java.sql.Types.VARCHAR);
+            parameters.addValue("password", password, java.sql.Types.VARCHAR);
 
-        MapSqlParameterSource parameters = new MapSqlParameterSource();
-        parameters.addValue("username", username, java.sql.Types.VARCHAR);
-        parameters.addValue("accountType", accountType, java.sql.Types.VARCHAR);
-        parameters.addValue("password", password, java.sql.Types.VARCHAR);
+            jdbcTemplate.update(sql, parameters);
+            
+            return "login";
 
-        jdbcTemplate.update(sql, parameters);
-
-        return "login";
+        } catch (DataAccessException e) {
+            e.printStackTrace();
+            return "error"; 
+        }
     }
+
 }

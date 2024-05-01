@@ -33,21 +33,25 @@ public class CreatorController {
     public String publishCard(@ModelAttribute Card card, @RequestParam("image") MultipartFile file, @RequestParam("userID") String userID) {
         if (!file.isEmpty()) {
             String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-            String uploadDir = "/Users/jayden/Library/CloudStorage/OneDrive-UNCG/Spring2024Workspace/DyVert/DyVert/DyVert/src/main/resources/static/content-images";
+            String uploadDir = "static/content-images";
 
             try {
-                Path uploadPath = Paths.get(uploadDir);
-                Files.createDirectories(uploadPath);
-                Path filePath = uploadPath.resolve(fileName);
+                String resourceDir = getClass().getClassLoader().getResource(uploadDir).getPath();
+                String absolutePath = Paths.get(resourceDir).toAbsolutePath().toString();
+                Path filePath = Paths.get(absolutePath, fileName);
                 Files.copy(file.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
                 card.setImagePath(fileName);
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
+        // Save the card
         cardService.saveCard(card, userID);
-        return "redirect:/creator/"+userID+"/create";
+        // Redirect to the creator page
+        return "redirect:/creator/" + userID + "/create";
     }
+
+
     
     @GetMapping("/{id}/create")
     public String showCreateForm(@PathVariable("id") String userID, Model model) {

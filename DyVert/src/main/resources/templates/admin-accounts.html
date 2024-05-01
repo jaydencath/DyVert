@@ -31,9 +31,11 @@
             </ul>
         </div>
         <div class="nav-profile-container">
-            <a href="@{/user/login}" class="nav-profile-container">
-                <img src="@{/Icons/user-circle.svg}" alt="profile icon" class="nav-profile">
-            </a>
+            <form id="logout-form" action="/logout" method="post">
+                <button type="submit" class="logout-button">
+                    <img class="nav-profile" src="/Icons/user-circle.svg" alt="profile icon">
+                </button>
+            </form>
         </div>
     </nav>
 

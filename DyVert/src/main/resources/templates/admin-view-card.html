@@ -31,9 +31,11 @@
             </ul>
         </div>
         <div class="nav-profile-container">
-            <a href="../user/login.html" class="nav-profile-container">
-                <img class="nav-profile" src="/Icons/user-circle.svg" alt="profile icon">
-            </a>
+            <form id="logout-form" action="/logout" method="post">
+                <button type="submit" class="logout-button">
+                    <img class="nav-profile" src="/Icons/user-circle.svg" alt="profile icon">
+                </button>
+            </form>
         </div>
     </nav>
 
@@ -45,12 +47,12 @@
                 </p>
             </div>
             <div class="side-option menu-option">
-                <a href="#" class="side-option">
+                <a th:href="@{/admin/{id}/all-unreviewed(id=${userID})}" class="side-option">
                     <p class="admin-active">Unreviewed Cards</p>
                 </a>
             </div>
             <div class="side-option menu-option">
-                <a href="./admin-accounts.html" class="side-option">
+                <a th:href="@{/admin/{id}/accounts(id=${userID})}" class="side-option">
                     <p class="side-menu-text">Accounts</p>
                 </a>
             </div>
@@ -67,6 +69,7 @@
                 </form>
                 <form th:action="@{/admin/delete}" method="POST">
                     <input type="hidden" name="id" th:value="${card.cardID}" />
+                    <input type="hidden" name="userID" th:value="${userID}" />
                     <button type="submit"><img class="side-menu-icons" src="/Icons/trash.svg" alt="Trash Icon"></button>                   
                 </form>
                 <form th:action="@{/admin/review}" method="POST">

@@ -33,10 +33,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests((authorize) -> authorize
                 .dispatcherTypeMatchers(DispatcherType.FORWARD,
                         DispatcherType.ERROR).permitAll()
-                .requestMatchers("/signup").permitAll()
+                .requestMatchers("/signup", "/sn", "/signup-error").permitAll()
                 .requestMatchers("/user/**").hasAnyAuthority("User", "Admin", "Creator")
                 .requestMatchers("/creator/**").hasAnyAuthority("Admin", "Creator")
                 .requestMatchers( "/admin/**").hasAuthority("Admin")
+                .requestMatchers("/Icons/**").permitAll()
                 .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -44,6 +45,11 @@ public class SecurityConfig {
                 .successForwardUrl("/home")
                 .failureUrl("/login?error=true")        
                 .permitAll()
+                )
+                .logout((logout) -> logout
+                    .logoutUrl("/logout")
+                    .logoutSuccessUrl("/login?logout")
+                    .permitAll() 
                 ).exceptionHandling((x) -> x.accessDeniedPage("/403"))
                 .logout((logout) -> logout.permitAll())
                 .requestCache((cache) -> cache

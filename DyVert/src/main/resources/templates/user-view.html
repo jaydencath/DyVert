@@ -61,10 +61,13 @@
         </div>
 
         <div class="nav-profile-container">
-            <a href="../user/login.html" class="nav-profile-container">
-                <img class="nav-profile" src="/Icons/user-circle.svg" alt="profile icon">
-            </a>
+            <form id="logout-form" action="/logout" method="post">
+                <button type="submit" class="logout-button">
+                    <img class="nav-profile" src="/Icons/user-circle.svg" alt="profile icon">
+                </button>
+            </form>
         </div>
+
     </nav>
 
     <div class="content-container">
@@ -100,12 +103,7 @@
                     <p class="side-menu-text">Shows</p>
                 </a>
             </div>
-            <div class="genres-side side-option">
-                <a href="#" class="side-option">
-                    <img class="side-menu-icons" src="/Icons/chevron-down.svg" alt="down chevron">
-                    <p class="side-menu-text">Genres</p>
-                </a>
-            </div>
+            
         </div>
 
         <div class="swipe-content">

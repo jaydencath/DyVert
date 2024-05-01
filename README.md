@@ -13,3 +13,29 @@
 
 
 ![Use Case Diagram](./Use%20Case%20Diagram.png)
+
+## Directions
+- Clone the project and open in Netbeans
+- Open XAMPP Control Panel Dashboard.
+- Start Apache.
+- Start MySQL.
+- Click on MySQL Admin, to open the database dashboard on your browser.
+- Create a database with the name 'dyvert-db'.
+- Import 'dyvert-db.sql'.
+- Clean and Build the project.
+- Run->Set Project Configuration->Customize->Run->Main Class->Browse->Select com.DyVert.DyVert.DyVertApplication.java.
+- Run the main method.
+- On web browser: http://localhost:8080
+    - Login with three user types with username below:
+        - Username: user
+        - Username: creatorUser
+        - Username: adminUser
+        - All passwords are password
+    - User can only access Home and Bucket.
+        - Trying to access Creator/Admin will throw error.
+    - Creator can access what user can AND Creator tab.
+        - Trying to access Admin will throw error.
+        - If create page throws error after publish, try smaller image file size.
+    - Admin can access all tabs.
+    - Click on Profile Icon in top right at any time to log out.
+    - Create your own users with sign up link on login page!

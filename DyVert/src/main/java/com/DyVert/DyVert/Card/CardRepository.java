@@ -278,7 +278,7 @@ public class CardRepository {
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uri))
                 .header("accept", "application/json")
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZDEwM2U4YmU2ODY3Yzg0ZjQwZWVhOWFmZTYyNWIzNiIsInN1YiI6IjY1YzY5YjFjMjY2Nzc4MDE3YzU2ZmIwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1OGS4BP0cqZR_p1lHYTtuJgr0JBHYdJpltAr9utCD2c")
+                .header("Authorization", "Bearer APIKEYHERE")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
             HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
@@ -321,7 +321,7 @@ public class CardRepository {
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(cardRequest))
                 .header("accept", "application/json")
-                .header("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjZDEwM2U4YmU2ODY3Yzg0ZjQwZWVhOWFmZTYyNWIzNiIsInN1YiI6IjY1YzY5YjFjMjY2Nzc4MDE3YzU2ZmIwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1OGS4BP0cqZR_p1lHYTtuJgr0JBHYdJpltAr9utCD2c")
+                .header("Authorization", "Bearer APIKEYHERE")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
             HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
